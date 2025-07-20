@@ -1,0 +1,21 @@
+# Baisc Web scraping with Beautifulsoup
+# Install required packages
+!pip install beautifulsoup4 requests
+
+# Import libraries
+import requests
+from bs4 import BeautifulSoup
+
+# URL to scrape
+url = 'http://quotes.toscrape.com'
+
+# Send request
+response = requests.get(url)
+
+# Parse the HTML
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Print the full page text content
+print("Page Text:\n")
+print(soup.get_text(strip=True, separator='\n'))  #to extract text from html
+#print(soup.prettify())  #to see all html
